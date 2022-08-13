@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "type": "text"
+  },
+  {
+    "id": 2,
+    "type": "email"
+  },
+  {
+    "id": 3,
+    "type": "checkbox"
+  },
+  {
+    "id": 4,
+    "type": "number"
+  },
+  {
+    "id": 5,
+    "type": "tel"
+  },
+  {
+    "id": 6,
+    "type": "password"
+  },
+  {
+    "id": 7,
+    "type": "radio"
+  }
+  
+ ]
+ 
+
