@@ -1,0 +1,187 @@
+[
+  {
+    "id": "firstname",
+    "label": "Name:",
+    "name": "firstname",
+    "type": "text",
+    "validations": [
+      {
+       
+       "type": "pattern",
+       "value": "[a-zA-Z]+"
+      },
+      {
+        
+        "type": "required",
+        "value": "true"
+       }
+     ]
+  },
+  {
+    "id": "middlename",
+    "label": "Middle Name:",
+    "name": "middlename",
+    "type": "text",
+    "validations": [
+      {
+       
+       "type": "pattern",
+       "value": "[a-zA-Z]+"
+      }
+     ]
+  },
+  {
+    "id": "lastname",
+    "label": "Last Name:",
+    "name": "lastname",
+    "type": "text",
+    "validations": [
+      {
+       
+       "type": "pattern",
+       "value": "[a-zA-Z]+"
+      },
+      {
+        
+        "type": "required",
+        "value": "true"
+       }
+     ]
+  },
+  {
+    "id": "email",
+    "label": "Email:",
+    "name": "email",
+    "type": "email",
+    "validations": [
+      {
+       
+       "type": "required",
+       "value": "true"
+      }
+     ]
+  },
+  {
+    "id": "password",
+    "label": "Password:",
+    "name": "password",
+    "type": "password",
+    "validations": [
+      {
+      
+       "type": "required",
+       "value": "true"
+      }
+     ]
+  },
+  {
+    "id": 3,
+    "type": "checkbox",
+    "options": [
+      {
+      "id": "html",
+      "label": "HTML",
+      "name": "lang_skills",
+      "value": "HTML"
+    }, {
+      "id": "css",
+      "label": "CSS",
+      "name": "lang_skills",
+      "value": "CSS"
+    }, {
+      "id": "javascript",
+      "label": "JavaScript",
+      "name": "lang_skills",
+      "value": "JavaScript"
+    }, {
+      "id": "java",
+      "label": "Java",
+      "name": "lang_skills",
+      "value": "Java"
+    }, {
+      "id": "python",
+      "label": "Python",
+      "name": "lang_skills",
+      "value": "Python"
+    }
+  ]
+  },
+  {
+    "id": "contact",
+    "label": "Contact Number:",
+    "name": "contact",
+    "type": "tel",
+    "validations":[
+      {
+       
+        "type":"pattern",
+        "value": "[0-9]{11}"
+      }
+    ]
+  },
+  {
+    "id": "gender",
+    "type": "radio",
+    "options": [
+      {
+      "id": "male",
+      "label": "Male",
+      "name": "gender",
+      "value": "Male"
+    }, {
+      "id": "female",
+      "label": "Female",
+      "name": "gender",
+      "value": "Female"
+    }, {
+      "id": "other",
+      "label": "Other",
+      "name": "gender",
+      "value": "Other"
+    }
+  ],
+  "validations": [
+    {
+      
+      "type": "required",
+      "value": "true"
+     }
+   ]
+    
+  },
+  {
+    "id": "residence",
+    "label": "Country of residence:",
+    "type": "select",
+    "name": "residence",
+    "options": [
+     {
+      
+      "label": "United Kingdom",
+      "value": "GB"
+     },
+     {
+      
+      "label": "Brazil",
+      "value": "BR"
+     },
+     {
+     
+      "label": "Portugal",
+      "value": "PT"
+     }
+    ]
+  },
+  {
+    "id": "textarea",
+    "label": "Message:",
+    "name": "textarea",
+    "type": "textarea",
+    "rows": 2,
+    "cols": 20
+  }
+
+  
+ ]
+ 
+
