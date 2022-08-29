@@ -2,14 +2,21 @@ console.log("js file linked.");
 
 const body = document.querySelector("body");
 const form = document.createElement("form");
+const container = document.createElement("div");
+const formTitle = document.createElement("h2");
+formTitle.innerText = "Sign up form";
+container.classList.add("container");
 const submit = document.createElement("input");
 submit.setAttribute("type", "submit");
 submit.setAttribute("id", "submit");
 // Array to compare different types of input allowed
 const supportedTypes = ["text", "number", "tel", "email", "password"];
+const formURL =
+  "http://127.0.0.1:5500/frontend-roadmap/exercises/form-renderer/";
 
 // Function that takes a json object an creates inputs based on the different types available
 function formRenderer(jsonData) {
+  form.appendChild(formTitle);
   jsonData.forEach((item) => {
     const label = document.createElement("label");
     const div = document.createElement("div");
@@ -33,6 +40,7 @@ function formRenderer(jsonData) {
           }
         });
       }
+
       div.appendChild(label);
       div.appendChild(input);
       form.appendChild(div);
@@ -52,7 +60,7 @@ function formRenderer(jsonData) {
           selectTag.appendChild(optionTag);
         });
       }
-      label.innerHTML = item.label;
+      label.innerText = item.label;
       div.appendChild(label);
       div.appendChild(selectTag);
       form.appendChild(div);
@@ -73,39 +81,43 @@ function formRenderer(jsonData) {
       // Handles radios and checkboxes tags **************************
     } else if (item.type === "radio" || item.type === "checkbox") {
       const itemType = item.type;
+      label.innerText = item.label;
+      div.appendChild(label);
       // console.log("I am radio");
       if (item.options) {
         const options = item.options;
         options.forEach((option) => {
           const input = document.createElement("input");
-          const label = document.createElement("label");
+          const labelOption = document.createElement("label");
           input.setAttribute("type", itemType);
           input.setAttribute("id", option.id);
           input.setAttribute("name", option.name);
           input.setAttribute("name", option.name);
           input.setAttribute("value", option.value);
-          label.innerText = option.label;
+          labelOption.innerText = option.label;
           label.setAttribute("for", option.id);
           if (item.validations) {
             const temp = item.validations;
             temp.forEach((item) => {
               if (item.type === "pattern") {
-                // console.log(item);
                 input.setAttribute(item.type, item.value);
               } else if (item.type === "required") {
                 input.required = !!item.value;
               }
             });
           }
+
           div.appendChild(input);
-          div.appendChild(label);
+          div.appendChild(labelOption);
           form.appendChild(div);
         });
       }
     }
   });
+
   form.appendChild(submit);
-  body.appendChild(form);
+  container.appendChild(form);
+  body.appendChild(container);
 }
 
 //  Fetch external .json file and converts into js objetc (I am still leraning more about asynchronous javascript)
@@ -115,4 +127,35 @@ const jsonObj = fetch("./form.json")
   })
   .then((data) => {
     formRenderer(data);
+    displayResults(data);
   });
+
+// Display data on webpage
+
+function displayResults(dataArray) {
+  const resultsDiv = document.createElement("div");
+  const resultsTitle = document.createElement("h2");
+  resultsTitle.innerText = "Confirm your details:";
+  resultsDiv.setAttribute("id", "results");
+  resultsDiv.classList.add("results-div");
+
+  new URLSearchParams(window.location.search).forEach((value, name) => {
+    // Compare URL names with input name to display each label on the webpage accordingly
+    dataArray.forEach((element) => {
+      if (name === element.name) {
+        // console.log(element.label);
+
+        const text = document.createElement("p");
+        text.innerText = `${element.label} ${value}`;
+        resultsDiv.appendChild(text);
+      }
+    });
+    resultsDiv.insertBefore(resultsTitle, resultsDiv.firstChild);
+  });
+
+  container.appendChild(resultsDiv);
+  // Remove parameters from URL, refreshing the page to its original state
+  window.history.pushState({}, "", formURL);
+}
+
+submit.addEventListener("click", displayResults);
