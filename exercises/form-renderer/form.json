@@ -1,7 +1,7 @@
 [
   {
     "id": "firstname",
-    "label": "Name:",
+    "label": "Name: ",
     "name": "firstname",
     "type": "text",
     "validations": [
@@ -19,7 +19,7 @@
   },
   {
     "id": "middlename",
-    "label": "Middle Name:",
+    "label": "Middle Name: ",
     "name": "middlename",
     "type": "text",
     "validations": [
@@ -32,7 +32,7 @@
   },
   {
     "id": "lastname",
-    "label": "Last Name:",
+    "label": "Last Name: ",
     "name": "lastname",
     "type": "text",
     "validations": [
@@ -50,7 +50,7 @@
   },
   {
     "id": "email",
-    "label": "Email:",
+    "label": "Email: ",
     "name": "email",
     "type": "email",
     "validations": [
@@ -63,7 +63,7 @@
   },
   {
     "id": "password",
-    "label": "Password:",
+    "label": "Password: ",
     "name": "password",
     "type": "password",
     "validations": [
@@ -75,7 +75,9 @@
      ]
   },
   {
-    "id": 3,
+    "id": "skills",
+    "label": "Language Skills: ",
+    "name": "lang_skills",
     "type": "checkbox",
     "options": [
       {
@@ -108,19 +110,15 @@
   },
   {
     "id": "contact",
-    "label": "Contact Number:",
+    "label": "Contact Number: ",
     "name": "contact",
-    "type": "tel",
-    "validations":[
-      {
-       
-        "type":"pattern",
-        "value": "[0-9]{11}"
-      }
-    ]
+    "type": "tel"
+        
   },
   {
     "id": "gender",
+    "label": "Gender: ",
+    "name":"gender",
     "type": "radio",
     "options": [
       {
@@ -151,7 +149,7 @@
   },
   {
     "id": "residence",
-    "label": "Country of residence:",
+    "label": "Country of residence: ",
     "type": "select",
     "name": "residence",
     "options": [
@@ -174,7 +172,7 @@
   },
   {
     "id": "textarea",
-    "label": "Message:",
+    "label": "Message: ",
     "name": "textarea",
     "type": "textarea",
     "rows": 2,

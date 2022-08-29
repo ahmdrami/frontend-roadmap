@@ -3,3 +3,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+h2{
+  margin-bottom: 1rem;
+}
+
+
+.container {
+  background: #f5f5f5;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  /* gap: 5rem; */
+}
+
+form > div{
+  padding: .5rem;
+}
+
+
+.results-div > p {
+  padding: .5rem;
+}
