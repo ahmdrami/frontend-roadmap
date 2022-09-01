@@ -10,6 +10,7 @@ const submit = document.createElement("input");
 submit.setAttribute("type", "submit");
 submit.setAttribute("id", "submit");
 // Array to compare different types of input allowed
+// todo: supportedTypes array is missing textarea, select, radio and checkbox
 const supportedTypes = ["text", "number", "tel", "email", "password"];
 const formURL =
   "http://127.0.0.1:5500/frontend-roadmap/exercises/form-renderer/";
@@ -22,12 +23,18 @@ function formRenderer(jsonData) {
     const div = document.createElement("div");
     // handles different inputs *****************
     if (supportedTypes.includes(item.type)) {
+      // todo:
+      // this part of the code is repeated on line 72 and line 93 
+      // how can you make it reusable? 
       const input = document.createElement("input");
       input.setAttribute("id", item.id);
       input.setAttribute("type", item.type);
       input.setAttribute("name", item.name);
       label.innerText = item.label;
       label.setAttribute("for", item.id);
+      // todo:
+      // this part of the code is repeated on line 105 as well
+      // how can you make it reusable? 
       // check json for validations
       if (item.validations) {
         const temp = item.validations;
@@ -120,6 +127,9 @@ function formRenderer(jsonData) {
   body.appendChild(container);
 }
 
+// todo:
+// what happens when this fetch call fails? You are not catching the error.
+// Would be nicer to show the feedback of the error to the end user.
 //  Fetch external .json file and converts into js objetc (I am still leraning more about asynchronous javascript)
 const jsonObj = fetch("./form.json")
   .then((response) => {
@@ -131,7 +141,6 @@ const jsonObj = fetch("./form.json")
   });
 
 // Display data on webpage
-
 function displayResults(dataArray) {
   const resultsDiv = document.createElement("div");
   const resultsTitle = document.createElement("h2");
@@ -139,6 +148,7 @@ function displayResults(dataArray) {
   resultsDiv.setAttribute("id", "results");
   resultsDiv.classList.add("results-div");
 
+  // this is a good way of handling search params
   new URLSearchParams(window.location.search).forEach((value, name) => {
     // Compare URL names with input name to display each label on the webpage accordingly
     dataArray.forEach((element) => {
