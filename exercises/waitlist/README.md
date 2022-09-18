@@ -35,6 +35,7 @@ Create a db.json file with some data
   "users": [
     { "id": 1, "name": "user 1", "email": "user1@example" }
   ]
+  "counter": 0
 }
 ```
 
