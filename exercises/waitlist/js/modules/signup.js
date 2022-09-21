@@ -47,9 +47,6 @@ let emailsArray = [];
 let validEmail = true;
 const newUser = {};
 
-// TODO
-// function saveValues(jsonObj){}
-
 // Fetch data once user click on the form **********
 function handleJsonFetch(e) {
   form.removeEventListener("click", handleJsonFetch);
@@ -77,25 +74,23 @@ function handleNameInput() {
 
 // Validate and check if Email has already been used ***********
 function filterEmail() {
-  emailsArray.forEach((email) => {
-    if (email === emailInput.value) {
-      emailInput.classList.add("error");
-      emailErrorSpan.innerText =
-        "Email already in use. Please try a different email.";
-      emailInput.after(emailErrorSpan);
-      validEmail = false;
-    } else {
-      emailInput.classList.remove("error");
-      emailErrorSpan.innerText = "";
-      emailInput.after(emailErrorSpan);
-      validEmail = true;
-    }
-  });
-  if (!emailInput.checkValidity() || emailInput.value === null) {
+  if (emailsArray.includes(emailInput.value)) {
+    emailInput.classList.add("error");
+    emailErrorSpan.innerText =
+      "Email already in use. Please try a different email.";
+    emailInput.after(emailErrorSpan);
+    validEmail = false;
+  } else if (!emailInput.checkValidity() || emailInput.value === null) {
     emailInput.classList.add("error");
     emailErrorSpan.innerText = emailInput.validationMessage;
     emailInput.after(emailErrorSpan);
+  } else {
+    emailInput.classList.remove("error");
+    emailErrorSpan.innerText = "";
+    emailInput.after(emailErrorSpan);
+    validEmail = true;
   }
+
   return emailInput.checkValidity();
 }
 
@@ -106,6 +101,18 @@ function handleCheckBox(event) {
   } else {
     submitButton.disabled = true;
   }
+}
+// Save user obj locally after submitting
+function saveValues(json) {
+  localStorage["id"] = json.counter + 1;
+  localStorage[nameInput.name] = nameInput.value;
+  localStorage[emailInput.name] = emailInput.value;
+  localStorage["position"] = json.counter + 1;
+
+  newUser["id"] = json.counter + 1;
+  newUser[nameInput.name] = nameInput.value;
+  newUser[emailInput.name] = emailInput.value;
+  newUser["position"] = json.counter + 1;
 }
 
 nameInput.addEventListener("change", handleNameInput);
@@ -120,9 +127,8 @@ function handleClick(event) {
     fetch(urlCounter)
       .then((r) => r.json())
       .then((jsonData) => {
-        console.log(jsonData);
-        // TODO Save values to newUser OBJ
-        // saveValues();
+        saveValues(jsonData);
+        console.log(newUser);
       });
   } else {
     console.log("WTF, try again bruh!");
