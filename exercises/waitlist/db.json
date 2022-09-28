@@ -17,9 +17,27 @@
       "name": "user 3",
       "email": "user3@example",
       "position": 3
+    },
+    {
+      "id": 4,
+      "name": "Tiago",
+      "email": "familiamilitao@yahoo.com.br",
+      "position": 4
+    },
+    {
+      "id": 5,
+      "name": "Tiago",
+      "email": "familiamilitao@yahoo.com.br",
+      "position": 5
+    },
+    {
+      "id": 6,
+      "name": "Tiago",
+      "email": "tmpbruk@gmail.com",
+      "position": 6
     }
   ],
   "waitlistposition": {
-    "counter": 3
+    "counter": 6
   }
 }

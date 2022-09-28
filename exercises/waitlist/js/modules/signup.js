@@ -63,12 +63,16 @@ function getLocalStorageData() {
 function handleJsonFetch(e) {
   getLocalStorageData();
   form.removeEventListener("click", handleJsonFetch);
-  fetch(usersUrl)
-    .then((r) => r.json())
-    .then((jsonData) => {
-      emailsArray = jsonData.map((item) => item.email);
-      // console.log(emailsArray);
-    });
+  try {
+    fetch(usersUrl)
+      .then((r) => r.json())
+      .then((jsonData) => {
+        emailsArray = jsonData.map((item) => item.email);
+        // console.log(emailsArray);
+      });
+  } catch (error) {
+    console.log(`${error}`);
+  }
 }
 
 // Name Validation ************
@@ -132,23 +136,31 @@ function updateWaitlistCounter(json) {
   const newCounter = {
     counter: json.counter + 1,
   };
-  fetch(counterUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newCounter),
-  });
+  try {
+    fetch(counterUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newCounter),
+    });
+  } catch (error) {
+    window.alert(`${error}`);
+  }
 }
 
 function postNewUser() {
-  fetch("http://localhost:3000/users", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(newUser),
-  });
+  try {
+    fetch(usersUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    });
+  } catch (error) {
+    window.alert(`${error}`);
+  }
 }
 
 function postSuccessful() {
