@@ -35,9 +35,15 @@
       "name": "Tiago",
       "email": "tmpbruk@gmail.com",
       "position": 6
+    },
+    {
+      "id": 7,
+      "name": "Tiago Pereira",
+      "email": "knbvmjvhj@gmail.com",
+      "position": 7
     }
   ],
   "waitlistposition": {
-    "counter": 6
+    "counter": 7
   }
 }
