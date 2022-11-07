@@ -6,17 +6,17 @@ exercises/search/searchapp/node_modules
 
 
 exercises/color-picker/colorpicker/.pnp
-exercises/searchapp/colorpicker/.pnp
+exercises/search/searchapp/.pnp
 exercises/color-picker/colorpicker.pnp.js
-exercises/searchapp/colorpicker.pnp.js
+exercises/search/searchapp.pnp.js
 
 # testing
 exercises/color-picker/colorpicker/coverage
-exercises/searchapp/colorpicker/coverage
+exercises/search/searchapp/coverage
 
 # production
 exercises/color-picker/colorpicker/build
-exercises/searchapp/colorpicker/build
+exercises/search/searchapp/build
 
 # misc
 .DS_Store
