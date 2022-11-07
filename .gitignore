@@ -1,0 +1,31 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+exercises/color-picker/colorpicker/node_modules
+exercises/search/searchapp/node_modules
+
+
+exercises/color-picker/colorpicker/.pnp
+exercises/search/searchapp/.pnp
+exercises/color-picker/colorpicker.pnp.js
+exercises/search/searchapp.pnp.js
+
+# testing
+exercises/color-picker/colorpicker/coverage
+exercises/search/searchapp/coverage
+
+# production
+exercises/color-picker/colorpicker/build
+exercises/search/searchapp/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
