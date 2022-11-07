@@ -1,7 +1,7 @@
 import React from "react";
 
 const divStyle = {
-  background: "rgba(255, 255, 255, 0.2)",
+  background: "rgba(255, 25, 255, 0.2)",
   borderRadius: "16px",
   boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
   backdropFilter: "blur(5px)",
@@ -31,12 +31,7 @@ const buttonStyle = {
 };
 
 const inputStyle = {
-  background: "rgba(255, 255, 255, 0.2)",
   borderRadius: "16px",
-  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-  backdropFilter: "blur(5px)",
-  webkitBackdropFilter: "blur(5px)",
-  border: "1px solid rgba(255, 255, 255, 0.3)",
   width: "150px",
   height: "48px",
   opacity: "0",
