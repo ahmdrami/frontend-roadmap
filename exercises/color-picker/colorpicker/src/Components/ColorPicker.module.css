@@ -1,0 +1,44 @@
+.container{
+  width: 100%; 
+  height: 100vh; 
+  /* background: blue; */
+}
+
+.btnWrapper  {
+  background: rgba(255, 25, 255, 0.2);
+  padding: 8px;
+  top: 8px;
+}
+
+.btn  {
+  background: rgba(255, 255, 255, 0.2);
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+}
+
+.btnInput{
+  opacity: 0;
+}
+
+.btnWrapper, .btn, .btnInput{
+  border-radius: 16px;
+  width: 150px;
+    height: 48px;
+    position: absolute;
+  left: 8px;
+}
+
+.btnWrapper, .btn {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.surprise{
+  height: 200px;
+  width: 200px;
+
+}
