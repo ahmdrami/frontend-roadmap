@@ -25,7 +25,7 @@ const SearchInput = () => {
   });
 
   const handleChange = ({ target }) => {
-    let word = `${target.value}`;
+    let word = `${target.value ? target.value.trim() : ""}`;
     const regex = new RegExp(word);
     setResults(
       json.filter((item) => {
